@@ -50,9 +50,12 @@ const pinkPrice = .55
 */
 
 // CODE HERE
+let totalAcres =0;
+    for(let i = 0; i<fujiAcres.length;i++){
+        totalAcres += fujiAcres[i] + galaAcres[i] + pinkAcres[i]
+    }   
 
-
-
+console.log("Total acres are " + totalAcres);
 
 
 // PROBLEM 2
@@ -68,7 +71,8 @@ const pinkPrice = .55
 */
 
 // CODE HERE
-
+let averageDailyAcres = totalAcres/(fujiAcres.length*3);
+console.log("Average acres is "+ averageDailyAcres)
 
 
 
@@ -106,8 +110,11 @@ let acresLeft = 174
 let days = 0
 
 // CODE HERE
-
-
+while(acresLeft > 0){
+    days++;
+    acresLeft-=averageDailyAcres
+}
+console.log(days)
 
 // PROBLEM 4
 
@@ -135,12 +142,16 @@ let days = 0
 
 // CODE HERE
 
-// let fujiTons =
-// let galaTons =
-// let pinkTons =
+let fujiTons = fujiAcres.slice(0,fujiAcres.length)
+let galaTons = galaAcres.slice(0,galaAcres.length)
+let pinkTons = pinkAcres.slice(0,pinkAcres.length)
 
-
-
+for(let i=0; i<fujiAcres.length; i++){
+    fujiTons[i]*=6.5;
+    galaTons[i]*=6.5;
+    pinkTons[i]*=6.5;
+}
+console.log(fujiTons+" \n" + galaTons+ " \n"+ pinkTons)
 
 
 
@@ -162,12 +173,18 @@ let days = 0
 
 // CODE HERE 
 
-// let fujiPounds =
-// let galaPounds =
-// let pinkPounds =
+let fujiPounds = 0
+let galaPounds = 0
+let pinkPounds = 0
 
+for(let i=0; i<fujiAcres.length; i++){
+    fujiPounds += fujiTons[i] *2000
+    galaPounds += galaTons[i] *2000
+    pinkPounds += pinkTons[i] *2000
+}
+console.log("thisss"+fujiPounds)
 
-
+console.log("Fuji is "+fujiPounds+"lbs\nGala is " + galaPounds+"lbs\nPink is "+ pinkPounds+"lbs");
 
 
 
@@ -189,12 +206,12 @@ let days = 0
 
 // CODE HERE
 
-// let fujiProfit =
-// let galaProfit =
-// let pinkProfit =
+let fujiProfit = (fujiPounds*fujiPrice)/100
+let galaProfit = (galaPounds*galaPrice)/100
+let pinkProfit = (pinkPounds*pinkPrice)/100
 
 
-
+console.log("Fuji is $"+fujiProfit+"\nGala is $" + galaProfit+"\nPink is $"+ pinkProfit+"");
 
 
 
@@ -209,3 +226,5 @@ let days = 0
 */
 
 // CODE HERE
+let totalProfit = fujiProfit + galaProfit + pinkProfit;
+console.log(`The total profit in dollars is \$${totalProfit}`);
