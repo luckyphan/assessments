@@ -50,11 +50,18 @@ const pinkPrice = .55
 */
 
 // CODE HERE
+/* declare the variable totalAcres that will store the sum of all the acres
+    Then set the for loop with the condition being the length of the acres array since all
+    of the acres are equivalent
+    Inside the for loop access the element at index i and add to the sum and update accordingly
+*/
 let totalAcres =0;
+if(fujiAcres.length === pinkAcres.length && pinkAcres.length === galaAcres.length){
     for(let i = 0; i<fujiAcres.length;i++){
         totalAcres += fujiAcres[i] + galaAcres[i] + pinkAcres[i]
     }   
-
+}
+console.log("----------------------------------")
 console.log("Total acres are " + totalAcres);
 
 
@@ -69,10 +76,15 @@ console.log("Total acres are " + totalAcres);
 
     Log `averageDailyAcres` to the console.
 */
-
+/* the formula for finding the average is the sum/number of elements
+    instantiate the averageDailyAcres with this formula but because there 
+    are 3 fields for the acres I did 3 * the length of the acres array length
+    for the number of elements
+*/
 // CODE HERE
+console.log("----------------------------------")
 let averageDailyAcres = totalAcres/(fujiAcres.length*3);
-console.log("Average acres is "+ averageDailyAcres)
+console.log("Average acres are "+ averageDailyAcres)
 
 
 
@@ -105,11 +117,16 @@ console.log("Average acres is "+ averageDailyAcres)
     any Math methods. 
 
 */
+/* the while loop needs to keep running until there are no acres left -> while(acresleft > 0)
+    inside the while loop, for each iteration (times it runs), increment the days var and subtract the
+    daily average (averageDailyAcres) from acresLeft
+*/
 
 let acresLeft = 174 
 let days = 0
 
 // CODE HERE
+console.log("----------------------------------")
 while(acresLeft > 0){
     days++;
     acresLeft-=averageDailyAcres
@@ -139,9 +156,12 @@ console.log(days)
     and use the push method to add new 
     values to the new arrays.
 */
-
+/* The three array will hold the amount of tons each field holds. I used the slice method
+    to initialize the array with copies of its corresponding acres array. Then inside the for loop
+    upon each iteration, it updates the ith element with the (element * 6.5) to give the field in tons
+*/
 // CODE HERE
-
+console.log("----------------------------------")
 let fujiTons = fujiAcres.slice(0,fujiAcres.length)
 let galaTons = galaAcres.slice(0,galaAcres.length)
 let pinkTons = pinkAcres.slice(0,pinkAcres.length)
@@ -170,9 +190,11 @@ console.log(fujiTons+" \n" + galaTons+ " \n"+ pinkTons)
 
     Hint: there are 2000 pounds in a ton.
 */
-
+/* initialized the pounds variable to zero. then will update it in the for loop. upon each iteration, the ith element of the tons
+    value will be * by 2000 to convert the element in lbs then will add and update the corresponding pounds variable
+*/
 // CODE HERE 
-
+console.log("----------------------------------")
 let fujiPounds = 0
 let galaPounds = 0
 let pinkPounds = 0
@@ -182,7 +204,6 @@ for(let i=0; i<fujiAcres.length; i++){
     galaPounds += galaTons[i] *2000
     pinkPounds += pinkTons[i] *2000
 }
-console.log("thisss"+fujiPounds)
 
 console.log("Fuji is "+fujiPounds+"lbs\nGala is " + galaPounds+"lbs\nPink is "+ pinkPounds+"lbs");
 
@@ -203,9 +224,10 @@ console.log("Fuji is "+fujiPounds+"lbs\nGala is " + galaPounds+"lbs\nPink is "+ 
     Log each of the profits to the 
     console. 
 */
-
+/* First you must find the price by multipluing the pounds to the corresponding price. This will be in cents. Therefore,
+    upon conversion to dollars, divide the amount by 100 */
 // CODE HERE
-
+console.log("----------------------------------")
 let fujiProfit = (fujiPounds*fujiPrice)/100
 let galaProfit = (galaPounds*galaPrice)/100
 let pinkProfit = (pinkPounds*pinkPrice)/100
@@ -224,7 +246,8 @@ console.log("Fuji is $"+fujiProfit+"\nGala is $" + galaProfit+"\nPink is $"+ pin
 
     Log `totalProfit` to the console.
 */
-
+/*totalProfit will store the sum of all the fields profit  */
 // CODE HERE
+console.log("----------------------------------")
 let totalProfit = fujiProfit + galaProfit + pinkProfit;
 console.log(`The total profit in dollars is \$${totalProfit}`);
